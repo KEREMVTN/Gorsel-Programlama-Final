@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OkulModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="OkulYönetimi">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Ad_Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Görevi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Görev_Tipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="YönetimDers" Relationship="Self.FK_YönetimDers_OkulYönetimi" FromRole="OkulYönetimi" ToRole="YönetimDers" />
+  </EntityType>
+  <EntityType Name="ÖDers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Ders_ID" Type="Int32" />
+    <Property Name="Öğrenci_ID" Type="Int32" />
+    <NavigationProperty Name="Öğrenci" Relationship="Self.FK_ÖDers_Öğrenci" FromRole="ÖDers" ToRole="Öğrenci" />
+    <NavigationProperty Name="YönetimDers" Relationship="Self.FK_ÖDers_YönetimDers" FromRole="ÖDers" ToRole="YönetimDers" />
+  </EntityType>
+  <EntityType Name="Öğrenci">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Ad_Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kayıt_Tarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Öğrenci_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Doğum_Tarihi" Type="DateTime" Precision="3" />
+    <Property Name="Bölüm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ÖDers" Relationship="Self.FK_ÖDers_Öğrenci" FromRole="Öğrenci" ToRole="ÖDers" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="YönetimDers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Ders_Adı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ders_Kredisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Okul_Yönetim_ID" Type="Int32" />
+    <NavigationProperty Name="OkulYönetimi" Relationship="Self.FK_YönetimDers_OkulYönetimi" FromRole="YönetimDers" ToRole="OkulYönetimi" />
+    <NavigationProperty Name="ÖDers" Relationship="Self.FK_ÖDers_YönetimDers" FromRole="YönetimDers" ToRole="ÖDers" />
+  </EntityType>
+  <Association Name="FK_YönetimDers_OkulYönetimi">
+    <End Role="OkulYönetimi" Type="Self.OkulYönetimi" Multiplicity="0..1" />
+    <End Role="YönetimDers" Type="Self.YönetimDers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OkulYönetimi">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="YönetimDers">
+        <PropertyRef Name="Okul_Yönetim_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ÖDers_Öğrenci">
+    <End Role="Öğrenci" Type="Self.Öğrenci" Multiplicity="0..1" />
+    <End Role="ÖDers" Type="Self.ÖDers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Öğrenci">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ÖDers">
+        <PropertyRef Name="Öğrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ÖDers_YönetimDers">
+    <End Role="YönetimDers" Type="Self.YönetimDers" Multiplicity="0..1" />
+    <End Role="ÖDers" Type="Self.ÖDers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YönetimDers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ÖDers">
+        <PropertyRef Name="Ders_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GörselEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="OkulYönetimi" EntityType="Self.OkulYönetimi" />
+    <EntitySet Name="ÖDers" EntityType="Self.ÖDers" />
+    <EntitySet Name="Öğrenci" EntityType="Self.Öğrenci" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="YönetimDers" EntityType="Self.YönetimDers" />
+    <AssociationSet Name="FK_YönetimDers_OkulYönetimi" Association="Self.FK_YönetimDers_OkulYönetimi">
+      <End Role="OkulYönetimi" EntitySet="OkulYönetimi" />
+      <End Role="YönetimDers" EntitySet="YönetimDers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ÖDers_Öğrenci" Association="Self.FK_ÖDers_Öğrenci">
+      <End Role="Öğrenci" EntitySet="Öğrenci" />
+      <End Role="ÖDers" EntitySet="ÖDers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ÖDers_YönetimDers" Association="Self.FK_ÖDers_YönetimDers">
+      <End Role="YönetimDers" EntitySet="YönetimDers" />
+      <End Role="ÖDers" EntitySet="ÖDers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

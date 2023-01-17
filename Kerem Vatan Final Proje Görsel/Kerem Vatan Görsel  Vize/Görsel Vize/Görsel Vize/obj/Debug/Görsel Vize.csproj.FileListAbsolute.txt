@@ -1,0 +1,20 @@
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\bin\Debug\Görsel Vize.exe.config
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\bin\Debug\Görsel Vize.exe
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\bin\Debug\Görsel Vize.pdb
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel Vize.csproj.AssemblyReference.cache
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel Vize.csproj.SuggestedBindingRedirects.cache
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel_Vize.Form1.resources
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel_Vize.Form2.resources
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel_Vize.Form3.resources
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel_Vize.Form4.resources
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel_Vize.Form5.resources
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel_Vize.Properties.Resources.resources
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel Vize.csproj.GenerateResource.cache
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel Vize.csproj.CoreCompileInputs.cache
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel Vize.exe
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel Vize.pdb
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\bin\Debug\EntityFramework.dll
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\bin\Debug\EntityFramework.xml
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kerem\source\repos\Görsel Vize\Görsel Vize\obj\Debug\Görsel Vize.csproj.CopyComplete
